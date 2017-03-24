@@ -13,12 +13,13 @@ constructor(props){
   };
 }
 componentDidMount() {
-  axios.get('/story.json')
+  axios.get('http://talegraph.herokuapp.com/api/stories/' + this.props.params.storyId)
     .then(res => {
       this.setState({story: res.data});
     });
 }
 render() {
+
     const story = this.state.story;
     if (story) {
       return (
